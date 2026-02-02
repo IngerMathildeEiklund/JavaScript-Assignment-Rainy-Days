@@ -22,15 +22,16 @@
 }
 
 .new-arrivals {
-  display: flex;
-  justify-content: space-around;
-  gap:0.5rem;
-  max-width: 1300px;
-  margin: 0 auto;
-  justify-self: center;
-  margin-inline: 0.5rem;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: auto;
 }
 
+.new-arrivals img {
+object-fit: contain;
+width: 200px;
+height: 200px;
+}
 .card3 {
   display: none;
 }
