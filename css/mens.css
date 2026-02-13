@@ -15,10 +15,11 @@
 font-size: 1rem;
 padding: 1rem 0.5rem 1rem 0.5rem;
 border-radius: 0.2rem;
-background-color: var(--secondary-color);
 margin-bottom:2rem;
 color: var(--button-text-color);
 margin-inline: 1rem;
+border: solid 2px;
+border-color: var(--button-text-color);
 }
 
 .sr-only {

@@ -1,30 +1,47 @@
-.card {
+.error-message {
+  background-color: red;
+  color: white;
+}
+.success-message {
+  background-color: green;
+  color: white;
+}
+.sale-price {
+  color: red;
+  font-weight: 600;
+}
+.margin-block {
+  margin-block: 3rem;
+}
+.flex {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  display: inline-block;
-  width: 100%;
-  gap: 1rem;
-  border: 1px solid var(--main-text-color);
-  border-radius: 1rem;
-  padding-inline: 0.6rem;
-  padding-block: 0.5rem;
+  justify-content: space-evenly
 }
-.card-info {
-  margin-block: 2rem;
-  margin-inline: 1rem;
-  line-height: 2.5rem;
+.btn {
+  font-family: 'Open sans';
+  background-color: var(--on-hover-size-button-color);
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  color: white;
+  font-size: 1rem;
+  border-radius: 0.5rem;
 }
-.card img {
-  width: 100%;
-  height: auto;
+.card {
+  
+}
+
+.strike {
+  text-decoration: line-through;
+}
+#title-and-filter {
+  text-align: center;
   margin-bottom: 2rem;
 }
 
-.new-arrivals {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: auto;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 15rem;
 }
 
 .new-arrivals img {
@@ -32,9 +49,7 @@ object-fit: contain;
 width: 200px;
 height: 200px;
 }
-.card3 {
-  display: none;
-}
+
 
 .hero-image {
   width: 100%;
@@ -74,7 +89,6 @@ height: 200px;
 
 #new-arrivals-title {
   font-weight: 400;
-  margin: 2rem;
 }
 .our-products-image {
   width: 100%;
@@ -89,11 +103,7 @@ height: 200px;
   margin:2rem;
 }
 
-.collection-button-container, .seemore-button-container  {
-    display: flex;
-    justify-content: center;
-    margin-block:1rem;
-}
+
 
 .text-container {
   display: flex;
@@ -119,6 +129,8 @@ height: 200px;
   }
     .new-arrivals {
     margin-inline: 5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 30rem;
   }
 }
 @media (min-width: 1025px) {

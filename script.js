@@ -1,55 +1,80 @@
-const url = "https://v2.api.noroff.dev";
-const ALL_PRODUCTS_ENDPOINT = "/rainy-days";
-const ONE_PRODUCT_ENDPOINT = "/rainy-days/<id>";
+export const url = "https://v2.api.noroff.dev";
+export const ALL_PRODUCTS_ENDPOINT = "/rainy-days";
+export const ONE_PRODUCT_ENDPOINT = "/rainy-days";
+
+let allProducts = [];
 
 async function getAllProducts(url, endpoint) {
   try {
-    const response = await fetch(url + ALL_PRODUCTS_ENDPOINT);
+    const response = await fetch(url + endpoint);
 
     if (!response.ok) {
       throw new Error(`HTTP error status: ${response.status}`);
     }
 
     const result = await response.json();
-    const products = result.data;
+    allProducts = result.data;
 
-    for (const product of products) {
-      const sectionContainer = document.querySelector(".new-arrivals");
-      const productContainer = document.createElement("div");
-      const productImage = document.createElement("img");
-      const productName = document.createElement("h3");
-      const productPrice = document.createElement("p");
-      const productSalePrice = document.createElement("p");
-
-      productImage.src = product.image.url;
-      productName.textContent = product.title;
-      productPrice.textContent = product.price;
-      productSalePrice.textContent = product.discountedPrice;
-
-      // Create an if statement for if onSale is true to display price, if not, do not display
-      sectionContainer.append(productContainer);
-      productContainer.append(
-        productImage,
-        productName,
-        productPrice,
-        productSalePrice,
-      );
-    }
+    displayProducts(allProducts);
   } catch (error) {
+    //add a toast notification if there is an error
   } finally {
     console.log("Finished loading products.");
   }
 }
-getAllProducts(url, ALL_PRODUCTS_ENDPOINT);
 
-async function getOneProduct(url, endpoint) {
-  try {
-    const response = await fetch(url + ONE_PRODUCT_ENDPOINT);
+function displayProducts(products) {
+  const sectionContainer = document.querySelector(".new-arrivals");
+  sectionContainer.innerHTML = "";
 
-    if (!response.ok) {
-      throw new Error(`HTTP error status: ${response.status}`);
+  for (const product of products) {
+    const productContainer = document.createElement("div");
+    const productImage = document.createElement("img");
+    const productName = document.createElement("h3");
+    const productPrice = document.createElement("p");
+    productContainer.classList.add("card");
+
+    productContainer.addEventListener("click", () => {
+      window.location.href = `productpage.html?id=${product.id}`;
+    });
+    productImage.src = product.image.url;
+    productImage.alt = product.title;
+    productName.textContent = product.title;
+    productPrice.textContent = product.price;
+    sectionContainer.append(productContainer);
+    productContainer.append(productImage, productName, productPrice);
+
+    if (product.onSale) {
+      const productSalePrice = document.createElement("p");
+      productSalePrice.classList.add("sale-price");
+      productPrice.classList.add("strike");
+      productSalePrice.textContent = `On sale! Now ${product.discountedPrice}`;
+      productContainer.append(productSalePrice);
     }
-    const result = await response.json();
-    const oneProduct = result.data;
-  } catch (error) {}
+  }
+}
+
+function filterByMale() {
+  const filtered = allProducts.filter((product) => product.gender === "Male");
+  displayProducts(filtered);
+}
+
+function filterByFemale() {
+  const filtered = allProducts.filter((product) => product.gender === "Female");
+  displayProducts(filtered);
+}
+
+function filterByAll() {
+  displayProducts(allProducts);
+}
+
+getAllProducts(url, ALL_PRODUCTS_ENDPOINT);
+if (document.getElementById("all-button")) {
+  const allBTN = document.getElementById("all-button");
+  const maleBTN = document.getElementById("male-button");
+  const femaleBTN = document.getElementById("female-button");
+
+  allBTN.addEventListener("click", filterByAll);
+  maleBTN.addEventListener("click", filterByMale);
+  femaleBTN.addEventListener("click", filterByFemale);
 }

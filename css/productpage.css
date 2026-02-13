@@ -1,5 +1,5 @@
 
-.product-container{
+/* .product-container{
     display: flex;
     flex-direction: column;
     max-width: 100%;
@@ -124,4 +124,27 @@
     left:0;
     bottom:0;
 }
+} */
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+img {
+    width: clamp(200px, 100%, 800px);
+    height: auto;
+}
+
+.BTN {
+    padding-inline: 1rem;
+    padding-block: 1rem;
+    font-size: 1.2rem;
+    background-color: var(--on-hover-size-button-color);
+    color: white;
+    border-radius: 1rem;
+    margin-top: 10rem;
 }
