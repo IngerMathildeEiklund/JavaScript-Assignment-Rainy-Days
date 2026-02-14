@@ -1,4 +1,4 @@
-
+/* 
 .content-container{
     display:flex;
     flex-direction: column;
@@ -135,4 +135,7 @@
         position: absolute;
         bottom: 2rem;
     }
-   }
+   } */
+ .cart-and-summary-container  {
+
+ }

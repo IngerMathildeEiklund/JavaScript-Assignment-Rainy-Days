@@ -94,8 +94,6 @@
           <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i
         ></a>
       </div>
-
-      <!-- mobile header -->
       <div class="search-bar-div" role="search">
         <input
           class="searchbar"
@@ -112,123 +110,11 @@
         <a class="womens-page" href="womens.html">WOMENS</a>
       </nav>
     </header>
-    <!-- <nav class="breadcrumbs" aria-label="Breadcrumbs">
-      <ol>
-        <li aria-current="page"><a href="cart.html"> Cart </a></li>
-        <li><a href="details.html">Checkout details</a></li>
-        <li><a href="confirmation.html">Confirmation</a></li>
-      </ol>
-    </nav> -->
     <main class="main">
-      <!-- <div class="content-container">
-        <a
-          class="back-button"
-          href="index.html"
-          aria-label="return to previpus page"
-        >
-          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-        </a>
-        Anything else section
-         <section class="anything-else-container">
-          <div class="anythingelse-header">
-            <h1>Anything else?</h1>
-            <p>Get them while they're hot!</p>
-          </div>
-
-          <div class="card-container card-clamp">
-            <div class="card-cart">
-              <img
-                src="images/FLEECE.png"
-                alt="photo of Patagonia fleece jacket"
-              />
-              <div class="card-info">
-                <h3>PATAGONIA</h3>
-                <p>Supersoft fleece</p>
-                <p>50,99 €</p>
-                <button class="button addbutton-cart btn-green">Add +</button>
-              </div>
-            </div>
-
-            <div class="card-cart">
-              <img
-                src="images/bomber.png"
-                alt="photo of XM softshell superlight"
-              />
-              <div class="card-info">
-                <h3>XM</h3>
-                <p>Softshell superlight</p>
-                <p>79,99 €</p>
-                <button class="button addbutton-cart btn-green">Add +</button>
-              </div>
-            </div>
-
-            <div class="card-cart">
-              <img
-                src="images/SUPALIGHT.png"
-                alt="photo of Scott softshell dry jacket"
-              />
-              <div class="card-info">
-                <h3>SCOTT</h3>
-                <p>Softshell dry</p>
-                <p>79,99 €</p>
-                <button class="button addbutton-cart btn-green">Add +</button>
-              </div>
-            </div>
-            <hr class="vertical-hr" aria-hidden="true" />
-          </div>
-        </section>
-        <!--Your cart section-->
-      <!-- <section class="cart-container">
-          <div class="yourcart-header">
-            <h1>Your cart</h1>
-          </div>
-          <div class="product-info-container-cart">
-            <div class="image-container-cart">
-              <img
-                src="images/SCOTTmain.png"
-                alt="Photo of Scott hardshell superior jacket"
-              />
-            </div>
-            <div class="product-text-container">
-              <h3>SCOTT</h3>
-              <p class="hardshell-superior">Hardshell superior</p>
-              <p>Color: Black</p>
-              <p>Size: Medium/Large</p>
-              <p>Quantity:</p>
-            </div>
-
-            <div class="quantity-box">
-              <label class="sr-only" for="quantity">Quantity</label>
-              <input
-                class="inputfield-quantity"
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                max="10"
-                step="1"
-                placeholder="1"
-              />
-            </div>
-          </div>
-          <hr class="horizontal-hr" aria-hidden="true" />
-
-          <div class="definition-list">
-            <dl class="order-total-dl">
-              <dt class="order-label">Total</dt>
-              <dd class="order-value">100.99 £</dd>
-            </dl>
-          </div>
-          <p>Shipping will be calculated in the next step.</p>
-          <div class="continue-to-checkout-button-container">
-            <a
-              class="button continue-to-checkout-button btn-orange"
-              href="details.html"
-              >Continue to checkout
-            </a>
-          </div>
-        </section>
-      </div> -->
+      <section id="cart-and-summary-container">
+        <div id="cart-container"></div>
+        <div id="summary-container"></div>
+      </section>
     </main>
     <footer>
       <div class="container-blue">
@@ -319,6 +205,7 @@
           &copy; 2020 Rainydays, inc. All rights reserved.
         </p>
       </div>
+      <script type="module" src="cart.js"></script>
     </footer>
   </body>
 </html>

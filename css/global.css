@@ -18,12 +18,8 @@
   --nav-desktop-text-color-focus-hover: #fffff4;
 }
 .main {
-  padding-inline: 1rem;
-  padding-top:5rem;
-  padding-bottom: 15rem;
-  max-width: 1500px;
-  margin:0 auto;
-  
+padding-inline: 20rem;
+margin: 0 auto;
 }
 .hidden {
   display: none;

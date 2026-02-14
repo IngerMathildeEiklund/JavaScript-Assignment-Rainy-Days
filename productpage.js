@@ -7,6 +7,23 @@ console.log("ID from URL:", id);
 const endpoint = `${ONE_PRODUCT_ENDPOINT}/${id}`;
 console.log("Full endpoint", url + endpoint);
 let oneProduct = {};
+let cart = [];
+
+function saveCart() {
+  localStorage.setItem("shoppingCart", JSON.stringify(cart));
+}
+function loadCart() {
+  const savedCart = localStorage.getItem("shoppingCart");
+  if (savedCart) {
+    cart = JSON.parse(savedCart);
+  }
+}
+function addToCart(product) {
+  cart.push(product);
+  saveCart();
+  //add a toast notification that item is added to cart
+  console.log(`item added to cart! ${oneProduct.title}`);
+}
 
 async function getOneProduct() {
   try {
@@ -29,6 +46,8 @@ function displayOneProduct() {
   const sizeAndBTNcontainer = document.getElementById(
     "size-dropdown-and-button-container",
   );
+  const sizeDropdown = document.createElement("select");
+  const sizePlaceholder = document.createElement("option");
   productContainer.classList.add("flex-row");
   sizeAndBTNcontainer.classList.add("size-dropdown-and-button-container");
   productInfo.classList.add("margin-left");
@@ -47,6 +66,27 @@ function displayOneProduct() {
   const addToCartBTN = document.createElement("button");
   addToCartBTN.textContent = "Add to cart";
   addToCartBTN.classList.add("btn");
+  addToCartBTN.addEventListener("click", () => {
+    const selectedSize = sizeDropdown.value;
+    const selectedCartItem = {
+      id: oneProduct.id,
+      title: oneProduct.title,
+      price: oneProduct.price,
+      image: oneProduct.image.url,
+      size: selectedSize,
+      quantity: 1,
+    };
+    if (oneProduct.onSale) {
+      selectedCartItem.price = oneProduct.discountedPrice;
+    }
+
+    if (!selectedSize) {
+      alert(`Please select a size!`);
+      return;
+    }
+    addToCart(selectedCartItem);
+  });
+
   productImage.src = oneProduct.image.url;
   productImage.alt = oneProduct.title;
   productName.textContent = oneProduct.title;
@@ -54,9 +94,7 @@ function displayOneProduct() {
   productPrice.textContent = oneProduct.price;
   productGender.textContent = `Fit: ${oneProduct.gender}`;
   productColor.textContent = `Color: ${oneProduct.baseColor}`;
-  const sizeDropdown = document.createElement("select");
 
-  const sizePlaceholder = document.createElement("option");
   sizePlaceholder.textContent = "Select a size";
   sizePlaceholder.value = "";
   sizePlaceholder.disabled = true;
@@ -90,5 +128,4 @@ function displayOneProduct() {
 }
 
 getOneProduct();
-
-//Next step, add an event listener to add item to cart!!!!! <3
+loadCart();
