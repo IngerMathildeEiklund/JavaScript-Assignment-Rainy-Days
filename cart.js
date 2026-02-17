@@ -1,4 +1,4 @@
-import { url, ALL_PRODUCTS_ENDPOINT, ONE_PRODUCT_ENDPOINT } from "./script.js";
+// import { url, ALL_PRODUCTS_ENDPOINT, ONE_PRODUCT_ENDPOINT } from "./script.js";
 import { cart, loadCart, saveCart, addToCart } from "./productpage.js";
 
 loadCart();
@@ -25,7 +25,7 @@ function displayCart() {
     cartContainer.innerHTML = `<h3> Your cart </h3> <p> Your cart is empty </p>`;
     summaryContainer.innerHTML = "";
   } else {
-    summaryContainer.innerHTML = "";
+    summaryContainer.innerHTML = "<h3> Order summary </h3>";
     cartContainer.innerHTML = "<h3> Your cart </h3>";
     const clearCartBTN = document.createElement("button");
     clearCartBTN.textContent = `Clear cart`;
@@ -84,8 +84,8 @@ function displayCart() {
       summaryContainer.appendChild(orderPriceSummary);
       orderTitleSummary.textContent = item.title;
       orderPriceSummary.textContent = item.onSale
-        ? item.discountedPrice
-        : item.price;
+        ? `$${item.discountedPrice}`
+        : `$${item.price}`;
     });
     const orderTotal = document.createElement("p");
     orderTotal.textContent = `Order total: $${total}`;

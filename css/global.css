@@ -17,6 +17,31 @@
   --nav-desktop-text-color: #d2d2d2;
   --nav-desktop-text-color-focus-hover: #fffff4;
 }
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+.toast {
+  padding: 15px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Open Sans';
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 0.5s, transform 0.5s;
+}
+.toast.success {
+  background-color: #65ac2b; 
+}
+.toast.error {
+  background-color: #dc3545; 
+}
+
 .main {
 padding-inline: 20rem;
 margin: 0 auto;

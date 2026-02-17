@@ -1,7 +1,6 @@
 export const url = "https://v2.api.noroff.dev";
 export const ALL_PRODUCTS_ENDPOINT = "/rainy-days";
 export const ONE_PRODUCT_ENDPOINT = "/rainy-days";
-
 let allProducts = [];
 
 async function getAllProducts(url, endpoint) {
@@ -17,14 +16,15 @@ async function getAllProducts(url, endpoint) {
 
     displayProducts(allProducts);
   } catch (error) {
-    //add a toast notification if there is an error
-  } finally {
-    console.log("Finished loading products.");
+    console.error("Something went wrong", error);
   }
 }
 
 function displayProducts(products) {
   const sectionContainer = document.querySelector(".new-arrivals");
+  if (!sectionContainer) {
+    return;
+  }
   sectionContainer.innerHTML = "";
 
   for (const product of products) {

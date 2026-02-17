@@ -1,5 +1,5 @@
 import { url, ALL_PRODUCTS_ENDPOINT, ONE_PRODUCT_ENDPOINT } from "./script.js";
-
+import { showToastNotification } from "./messages.js";
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 console.log("ID from URL:", id);
@@ -21,8 +21,7 @@ export function loadCart() {
 export function addToCart(product) {
   cart.push(product);
   saveCart();
-  //add a toast notification that item is added to cart
-  console.log(`item added to cart! ${oneProduct.title}`);
+  showToastNotification(`Item successfully added to cart!`, "success");
 }
 
 async function getOneProduct() {
@@ -63,7 +62,9 @@ function displayOneProduct() {
   const productPrice = document.createElement("p");
   const productGender = document.createElement("p");
   const productColor = document.createElement("p");
+  const productTags = document.createElement("p");
   const addToCartBTN = document.createElement("button");
+  productTags.textContent = `Tags: ${oneProduct.tags}`;
   addToCartBTN.textContent = "Add to cart";
   addToCartBTN.classList.add("btn");
   addToCartBTN.addEventListener("click", () => {
@@ -83,7 +84,7 @@ function displayOneProduct() {
     }
 
     if (!selectedSize) {
-      alert(`Please select a size!`);
+      showToastNotification("Please select a size!", "error");
       return;
     }
     addToCart(selectedCartItem);
@@ -124,6 +125,7 @@ function displayOneProduct() {
   productInfo.appendChild(productPrice);
   productInfo.appendChild(productGender);
   productInfo.appendChild(productColor);
+  productInfo.appendChild(productTags);
   sizeAndBTNcontainer.appendChild(sizeDropdown);
   sizeAndBTNcontainer.appendChild(addToCartBTN);
   productInfo.appendChild(sizeAndBTNcontainer);
