@@ -29,7 +29,6 @@
     <link href="css/header.css" rel="stylesheet" />
     <link href="css/footer.css" rel="stylesheet" />
     <link href="css/index.css" rel="stylesheet" />
-    <link href="css/mens.css" rel="stylesheet" />
 
     <link
       rel="apple-touch-icon"
@@ -94,54 +93,34 @@
           <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i
         ></a>
       </div>
-
-      <!-- mobile header -->
-      <div class="search-bar-div" role="search">
-        <input
-          class="searchbar"
-          aria-label="Search"
-          type="text"
-          placeholder="Search"
-        />
-        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-      </div>
-
-      <nav class="nav-container" aria-label="Main navigation">
-        <a class="home-page" href="index.html">HOME</a>
-        <a class="mens-page" href="mens.html">MENS</a>
-        <a class="womens-page" href="womens.html">WOMENS</a>
-      </nav>
     </header>
-    <main>
-      <section class="hero-section">
-        <div class="hero-image-container">
-          <img
-            class="hero-image"
-            src="images/tristan-pineda-iqRPZhNsTXE-unsplash-desktop.jpg"
-            fetchpriority="high"
-            alt="Photo of a man in rainjacket in a forest"
-          />
-          <div class="image-overlay"></div>
+    <section class="hero-section">
+      <div class="hero-image-container">
+        <img
+          class="hero-image"
+          src="images/tristan-pineda-iqRPZhNsTXE-unsplash-desktop.jpg"
+          fetchpriority="high"
+          alt="Photo of a man in rainjacket in a forest"
+        />
+        <div class="image-overlay"></div>
 
-          <h1 class="hero-text">
-            YOUR <span>JOURNEY</span> <span>BEGINS </span> <span>TODAY </span>
-          </h1>
-        </div>
-      </section>
-      <!-- fix the damn section so that its centered cba now-->
-      <div class="margin-block" id="title-and-filter">
-        <h1>Our products</h1>
-
-        <p>Filter products</p>
-        <div class="margin-block flex">
-          <button class="btn" id="all-button">All products</button>
-          <button class="btn" id="male-button">Male</button>
-          <button class="btn" id="female-button">Female</button>
-        </div>
+        <h1 class="hero-text">
+          YOUR <span>JOURNEY</span> <span>BEGINS </span> <span>TODAY </span>
+        </h1>
       </div>
-      <section class="new-arrivals grid" aria-labelledby="new-arrivals-title">
-        <!-- Products will be rendered here-->
-      </section>
+    </section>
+    <main class="main">
+      <h1 class="margin-block">Our products</h1>
+      <select class="dropdown margin-block" id="filter-dropdown">
+        <option value="all">All products</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <section
+        class="new-arrivals grid"
+        aria-labelledby="new-arrivals-title"
+      ></section>
 
       <section>
         <img
@@ -163,6 +142,7 @@
         </div>
       </section>
     </main>
+
     <footer>
       <div class="container-blue">
         <div class="container-text">

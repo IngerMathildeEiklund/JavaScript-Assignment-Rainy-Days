@@ -16,7 +16,51 @@
   --inputfield-focus-color: #0E7490; 
   --nav-desktop-text-color: #d2d2d2;
   --nav-desktop-text-color-focus-hover: #fffff4;
+  --gray: rgb(104, 104, 104);
+
 }
+
+.dropdown {
+  font-family: 'Open sans';
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: var(--gray);
+  color: var(--main-text-color);
+  padding-inline: 1rem;
+}
+.error-message {
+  background-color: red;
+  color: white;
+}
+.success-message {
+  background-color: green;
+  color: white;
+}
+.sale-price {
+  color: red;
+  font-weight: 600;
+}
+.strike {
+  text-decoration: line-through;
+}
+.margin-block {
+  margin-block: 3rem;
+}
+.flex {
+  display: flex;
+  justify-content: space-evenly
+}
+
+.btn {
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  border-radius: 0.8rem;
+  font-family: 'Open sans';
+  font-weight: 500;
+  
+}
+
 #toast-container {
   position: fixed;
   top: 20px;
@@ -43,7 +87,8 @@
 }
 
 .main {
-padding-inline: 20rem;
+margin-inline: 1rem;
+margin-block: 1rem;
 margin: 0 auto;
 }
 .hidden {
@@ -83,7 +128,7 @@ h1 {
 }
 h2 {
   font-family: "Open sans",'Helvetica';
- font-size: 1.125rem;
+ font-size: 1.250rem;
  color: var(--main-text-color);
 
 }
@@ -92,6 +137,7 @@ h3 {
  font-size: 1.125rem;
  color: var(--main-text-color);
  margin-bottom: 1rem;
+ font-weight: 500;
 }
 h4 {
   font-family: "Open sans",'Helvetica';
@@ -115,37 +161,12 @@ a {
 
 li {
   list-style-type: none;
+    font-family: "Open sans",'Helvetica';;
+  font-size: 1.050rem;
+  color: var(--main-text-color);
+   margin-bottom: 1rem;
+
 }
-/* .button {
-    font-family: 'Roboto','Arial';
-    font-size: 1.2rem;
-    padding-block: 1rem;
-    padding-inline: 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    color: var(--button-text-color);
-    text-align: center;
-} */
-/* .btn-orange {
-background-color: var(--secondary-color);
-}
-.btn-orange:hover {
-background-color: var(--on-hover-secondary-button-color);
-}
-.btn-green {
-background-color: var(--tertiary-color);
-}
-.btn-green:hover {
-background-color: var(--on-hover-tertiary-button-color);
-}
-.btn-blue {
-background-color: var(--primary-color);
-color:var(--nav-active-color);
-}
-.btn-blue:hover {
-background-color: var(--on-hover-size-button-color);
-color:var(--nav-active-color);
-} */
 
 input:focus {
   border-style: solid;
@@ -181,7 +202,7 @@ input:focus {
   flex-direction: column;
   text-align: center;
 }
-.back-button {
+/* .back-button {
   color: var(--main-text-color);
   width:1rem;
   height:1rem;
@@ -200,7 +221,7 @@ input:focus {
 }
 .breadcrumbs [aria-current="page"] {
   font-weight: 600;
-}
+} */
 
 @media (min-width: 768px) {
 h1 {
@@ -216,7 +237,7 @@ h4 {
   font-size: 1rem;
 }
 p, a {
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 .order-label {
   font-size: 1.25rem;
@@ -227,7 +248,16 @@ p, a {
 .button{
     font-size: 1.125rem;
 }
-
+.dropdown {
+  font-family: 'Open sans';
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 1px solid;
+  border-color: var(--gray);
+  color: var(--main-text-color);
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+}
 
 
 }
@@ -245,11 +275,9 @@ h3 {
 p, a {
   font-size: 1.25rem;
 }
-.button {
- font-size: 1.25rem;
+.main {
+margin-inline: 5rem;
+margin-block: 5rem;
+margin: 0 auto;
 }
-
-
-
-
 }

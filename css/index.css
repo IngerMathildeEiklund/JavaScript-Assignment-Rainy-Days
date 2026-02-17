@@ -1,65 +1,8 @@
-.error-message {
-  background-color: red;
-  color: white;
-}
-.success-message {
-  background-color: green;
-  color: white;
-}
-.sale-price {
-  color: red;
-  font-weight: 600;
-}
-.margin-block {
-  margin-block: 3rem;
-}
-.flex {
-  display: flex;
-  justify-content: space-evenly
-}
-.btn {
-  font-family: 'Open sans';
-  background-color: var(--on-hover-size-button-color);
-  padding-inline: 1rem;
-  padding-block: 1rem;
-  color: white;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-}
-.card {
-  
-}
-
-.strike {
-  text-decoration: line-through;
-}
-#title-and-filter {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 15rem;
-}
-
-.new-arrivals img {
-object-fit: contain;
-width: 200px;
-height: 200px;
-}
-
 
 .hero-image {
   width: 100%;
   height: auto;
   display: block;
-}
-.hero-image-container {
-  position: relative;
-  width:100%;
-  overflow:hidden;
 }
 .image-overlay {
   position:absolute;
@@ -70,6 +13,12 @@ height: 200px;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 80%);
   z-index:1;
 }
+.hero-image-container {
+  position: relative;
+  width:100%;
+  overflow:hidden;
+}
+
 
 .hero-section {
   position: relative;
@@ -86,10 +35,30 @@ height: 200px;
 .hero-text span {
   display:block;
 }
-
-#new-arrivals-title {
-  font-weight: 400;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 100rem;
+  margin: 0 auto;
 }
+
+.card {
+  padding-inline: 0.5rem;
+  padding-block: 0.5rem;
+  box-shadow: 2px 2px 5px 1px rgb(214, 214, 214);
+  border-color: rgb(150, 150, 150);
+  border-radius: 1rem;
+}
+
+
+
+.new-arrivals img {
+object-fit: contain;
+width: 200px;
+height: 200px;
+}
+
 .our-products-image {
   width: 100%;
   height: auto;
@@ -112,9 +81,11 @@ height: 200px;
 }
 
 @media (min-width: 768px) {
-  .card3 {
-    display: block;
-  }
+.grid {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
   .hero-text {
     font-size: 3rem;
   }
@@ -127,22 +98,18 @@ height: 200px;
     flex-direction: column;
     font-size: 1.2rem;
   }
-    .new-arrivals {
-    margin-inline: 5rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: 30rem;
-  }
+
 }
 @media (min-width: 1025px) {
-  .new-arrivals {
-    margin-inline: 15rem;
-  }
+
 .hero-text {
   font-size: 5rem;
 }
-.new-arrivals {
-  gap:4rem;
-
+.grid {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
 }
 
 }
+
+

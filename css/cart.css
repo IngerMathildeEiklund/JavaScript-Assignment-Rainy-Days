@@ -1,141 +1,16 @@
-/* 
-.content-container{
-    display:flex;
-    flex-direction: column;
-}
 
-.anything-else-container{
-    order:2; 
-}
-
-.card-container {
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.card-cart { 
- width: 100%;
-}
-
-.card-cart img {
-    width: 100%;
-    height: auto;
-}
-
-.button-container{
-    display: flex;
-    justify-content: space-around;
-}
-
-.cart-container{
-    order:1;
-}
-
-.cart-container img{
-    width:100%;
-    height: auto;
-}
-
-.product-name-container{
-    margin-bottom: 1rem;
-}
-
-.checkout-button-container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.total-text-container {
-    display: flex;
-    justify-content: space-between;
-}
-.hardshell-superior {
-    margin-bottom: 1rem;
-}
-.anythingelse-header, .yourcart-header {
-    margin-block: 2rem;
-   }
-   
-.quantity-box {
-    display:inline-block;
-}
-.inputfield-quantity {
-    width: 2rem;   
-    font-size: 1rem;    
-    }
-
-.product-info-container-cart { 
-    margin-block: 1rem;
-}
-.total-text-container {
-    display:flex;
-    justify-content: space-between;
-}
-.continue-to-checkout-button-container {
-    display: flex;
-    justify-self: center;
-    margin-block: 1rem;
-}
-
-@media (min-width: 768px)  {
-
-    .content-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    .anything-else-container{
-        order:1;  
-    }
-    .card-container{
-        display: flex;
-        flex-direction: row;
-    }
-
-    .cart-container{
-        display: flex;
-        flex-direction: column;
-    
-    }
-
-    .product-info-container-cart {
-        display: flex;
-        flex-direction: row;
-       
-    }
-    .image-container-cart {
-        width: clamp(5rem,10vw,10rem);
-        
-    }
-    .product-text-container {
-        text-wrap: nowrap;
-    }
-
-    .checkout-button-container {
-        flex-direction: column;
-    }
-    .horizontal-hr {
-        margin-block: 5rem;
-    }
-    .vertical-hr{
-        margin-inline: 2rem;
-    }
-    .card-clamp {
-        max-width: 52rem;
-    }
-    .quantity-box {
-    position: relative;
-    padding-inline:1rem;
-    
-    }
-    .inputfield-quantity {
-        position: absolute;
-        bottom: 2rem;
-    }
-   } */
- .cart-and-summary-container  {
-
+ #cart-and-summary-container  {
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin: 0 auto;
+gap: 3rem;
  }
+
+ @media (min-width: 768px) {
+ #cart-and-summary-container{
+   flex-direction: row;
+   gap: 5rem;
+ }
+ }
+

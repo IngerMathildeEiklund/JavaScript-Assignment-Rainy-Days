@@ -6,13 +6,13 @@ loadCart();
 const cartSummaryContainer = document.getElementById(
   "cart-and-summary-container",
 );
-cartSummaryContainer.classList.add("grid-2fr");
+// cartSummaryContainer.classList.add("grid-2fr");
 
 const cartContainer = document.getElementById("cart-container");
 const summaryContainer = document.getElementById("summary-container");
 
-const cartTitle = document.createElement("h3");
-const summaryTitle = document.createElement("h3");
+const cartTitle = document.createElement("h2");
+const summaryTitle = document.createElement("h2");
 cartTitle.textContent = "Your cart";
 summaryTitle.textContent = "Order summary";
 cartSummaryContainer.appendChild(cartContainer);
@@ -22,14 +22,15 @@ summaryContainer.append(summaryTitle);
 
 function displayCart() {
   if (cart.length === 0) {
-    cartContainer.innerHTML = `<h3> Your cart </h3> <p> Your cart is empty </p>`;
+    cartContainer.innerHTML = `<h2> Your cart </h2> <p> Your cart is empty </p>`;
     summaryContainer.innerHTML = "";
   } else {
-    summaryContainer.innerHTML = "<h3> Order summary </h3>";
-    cartContainer.innerHTML = "<h3> Your cart </h3>";
+    summaryContainer.innerHTML = "<h2> Order summary </h2>";
+    cartContainer.innerHTML = "<h2> Your cart </h2>";
     const clearCartBTN = document.createElement("button");
     clearCartBTN.textContent = `Clear cart`;
-    cartContainer.appendChild(clearCartBTN);
+    clearCartBTN.classList.add("clearCartBTN");
+
     clearCartBTN.addEventListener("click", () => {
       if (cart.length === 0) {
         clearCartBTN.disabled = true;
@@ -44,9 +45,9 @@ function displayCart() {
       total += item.price ? item.discountedPrice : item.price;
       const productContainer = document.createElement("div");
       const productImage = document.createElement("img");
-      const productName = document.createElement("h4");
+      const productName = document.createElement("h3");
       const productSize = document.createElement("p");
-      const productPrice = document.createElement("p");
+      const productPrice = document.createElement("h4");
       const productQuantity = document.createElement("p");
       productImage.src = item.image;
       productImage.classList.add("cart-image");
@@ -82,13 +83,14 @@ function displayCart() {
       const orderPriceSummary = document.createElement("li");
       summaryContainer.appendChild(orderTitleSummary);
       summaryContainer.appendChild(orderPriceSummary);
+      cartContainer.appendChild(clearCartBTN);
       orderTitleSummary.textContent = item.title;
       orderPriceSummary.textContent = item.onSale
         ? `$${item.discountedPrice}`
         : `$${item.price}`;
     });
-    const orderTotal = document.createElement("p");
-    orderTotal.textContent = `Order total: $${total}`;
+    const orderTotal = document.createElement("h3");
+    orderTotal.textContent = `Order total: $${total.toFixed(2)}`;
     summaryContainer.appendChild(orderTotal);
     const checkoutBTN = document.createElement("button");
     checkoutBTN.textContent = `Continue to checkout`;

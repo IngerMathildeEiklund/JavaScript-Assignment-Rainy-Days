@@ -46,6 +46,7 @@ function displayOneProduct() {
     "size-dropdown-and-button-container",
   );
   const sizeDropdown = document.createElement("select");
+  sizeDropdown.classList.add("dropdown");
   const sizePlaceholder = document.createElement("option");
   productContainer.classList.add("flex-row");
   sizeAndBTNcontainer.classList.add("size-dropdown-and-button-container");
@@ -59,7 +60,7 @@ function displayOneProduct() {
   const productImage = document.createElement("img");
   const productName = document.createElement("h3");
   const productDesc = document.createElement("p");
-  const productPrice = document.createElement("p");
+  const productPrice = document.createElement("h3");
   const productGender = document.createElement("p");
   const productColor = document.createElement("p");
   const productTags = document.createElement("p");
@@ -80,7 +81,7 @@ function displayOneProduct() {
       quantity: 1,
     };
     if (oneProduct.onSale) {
-      selectedCartItem.price = oneProduct.discountedPrice;
+      selectedCartItem.price = `$${oneProduct.discountedPrice}`;
     }
 
     if (!selectedSize) {
@@ -94,7 +95,7 @@ function displayOneProduct() {
   productImage.alt = oneProduct.title;
   productName.textContent = oneProduct.title;
   productDesc.textContent = oneProduct.description;
-  productPrice.textContent = oneProduct.price;
+  productPrice.textContent = `$${oneProduct.price}`;
   productGender.textContent = `Fit: ${oneProduct.gender}`;
   productColor.textContent = `Color: ${oneProduct.baseColor}`;
 

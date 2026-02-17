@@ -69,12 +69,17 @@ function filterByAll() {
 }
 
 getAllProducts(url, ALL_PRODUCTS_ENDPOINT);
-if (document.getElementById("all-button")) {
-  const allBTN = document.getElementById("all-button");
-  const maleBTN = document.getElementById("male-button");
-  const femaleBTN = document.getElementById("female-button");
 
-  allBTN.addEventListener("click", filterByAll);
-  maleBTN.addEventListener("click", filterByMale);
-  femaleBTN.addEventListener("click", filterByFemale);
+if (document.getElementById("filter-dropdown")) {
+  const filterDropdown = document.getElementById("filter-dropdown");
+  filterDropdown.addEventListener("change", () => {
+    const selectedFilter = filterDropdown.value;
+    if (selectedFilter === "all") {
+      filterByAll();
+    } else if (selectedFilter === "male") {
+      filterByMale();
+    } else if (selectedFilter === "female") {
+      filterByFemale();
+    }
+  });
 }
