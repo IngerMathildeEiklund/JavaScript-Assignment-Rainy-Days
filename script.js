@@ -23,7 +23,10 @@ async function getAllProducts(url, endpoint) {
 }
 
 function displayProducts(products) {
-  document.getElementById("loading-status").textContent = "";
+  const loadingStatus = document.getElementById("loading-status");
+  if (loadingStatus) {
+    loadingStatus.textContent = "";
+  }
   if (!sectionContainer) {
     return;
   }
@@ -78,21 +81,23 @@ function displayProducts(products) {
 function filterByMale() {
   const filtered = allProducts.filter((product) => product.gender === "Male");
   displayProducts(filtered);
-  document.getElementById("filter-status").textContent =
-    `Showing ${filtered.length} products`;
+  const filterStatus = document.getElementById("filter-status");
+  if (filterStatus)
+    filterStatus.textContent = `Showing ${filtered.length} products`;
 }
 
 function filterByFemale() {
   const filtered = allProducts.filter((product) => product.gender === "Female");
   displayProducts(filtered);
-  document.getElementById("filter-status").textContent =
-    `Showing ${filtered.length} products`;
+  const filterStatus = document.getElementById("filter-status");
+  if (filterStatus)
+    filterStatus.textContent = `Showing ${filtered.length} products`;
 }
-
 function filterByAll() {
   displayProducts(allProducts);
-  document.getElementById("filter-status").textContent =
-    `Showing ${allProducts.length} products`;
+  const filterStatus = document.getElementById("filter-status");
+  if (filterStatus)
+    filterStatus.textContent = `Showing ${allProducts.length} products`;
 }
 
 getAllProducts(url, ALL_PRODUCTS_ENDPOINT);
