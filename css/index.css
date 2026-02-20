@@ -35,6 +35,12 @@
 .hero-text span {
   display:block;
 }
+.heading-and-filter {
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+align-items: center;
+}
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -50,6 +56,12 @@
   border-color: rgb(150, 150, 150);
   border-radius: 1rem;
 }
+.card-img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 
 

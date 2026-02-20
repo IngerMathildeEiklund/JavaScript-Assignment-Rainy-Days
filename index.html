@@ -110,17 +110,21 @@
       </div>
     </section>
     <main class="main">
-      <h1 class="margin-block">Our products</h1>
-      <select class="dropdown margin-block" id="filter-dropdown">
-        <option value="all">All products</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-
-      <section
-        class="new-arrivals grid"
-        aria-labelledby="new-arrivals-title"
-      ></section>
+      <div class="heading-and-filter">
+        <h1 class="margin-block">Our products</h1>
+        <label for="filter-dropdown" class="sr-only">
+          Filter products by gender</label
+        >
+        <p class="sr-only" aria-live="polite" id="filter-status"></p>
+        <select class="dropdown margin-block" id="filter-dropdown">
+          <option value="all">All products</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <section class="new-arrivals grid" aria-labelledby="new-arrivals-title">
+        <p aria-live="polite" id="loading-status">Loading products...</p>
+      </section>
 
       <section>
         <img
@@ -136,8 +140,8 @@
             weather-resistant materials that stand up to daily wear and the
             toughest outdoor conditions. Designed with versatility in mind, each
             jacket offers a balance of strength, comfort, and functionality, so
-            whether you’re braving city downpours or tackling mountain trails,
-            you’ll find a fit ready for any challenge. Find yours today.
+            whether you're braving city downpours or tackling mountain trails,
+            you'll find a fit ready for any challenge. Find yours today.
           </h3>
         </div>
       </section>

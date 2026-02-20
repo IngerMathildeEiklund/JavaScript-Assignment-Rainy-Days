@@ -11,10 +11,9 @@
     flex-direction: row;
 }
 img {
-    width: clamp(200px, 100%, 800px);
+    width: clamp(150px, 100%, 600px);
     height: auto;
 }
-
 .btn {
   font-family: 'Open sans';
   background-color: var(--on-hover-size-button-color);
@@ -29,10 +28,7 @@ img {
     flex-direction: row;
     justify-content: space-between;
 }
-#product-container {
-    max-width: min(80rem, 90vw);
-    margin: 0 auto;
-}
+
 .margin-left {
     margin-left: 1rem;
 }
@@ -40,5 +36,9 @@ img {
 #product-container {
 display: grid;
 grid-template-columns: 1fr 1fr;
+}
+#product-container {
+    max-width: min(60rem, 70vw);
+    margin: 0 auto;
 }
 } 

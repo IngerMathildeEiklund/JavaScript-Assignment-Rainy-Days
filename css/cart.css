@@ -6,8 +6,15 @@ justify-content: center;
 margin: 0 auto;
 gap: 3rem;
  }
+
+ 
  .cart-image {
-width: clamp(60px, 8vw, 120px);
+width: clamp(100px, 10vw, 150px);
+height: auto;
+object-fit: contain;
+}
+.empty-cart-img {
+width: clamp(200px, 35vw, 500px);
 height: auto;
 object-fit: contain;
 }

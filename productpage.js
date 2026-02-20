@@ -21,8 +21,9 @@ export function loadCart() {
 export function addToCart(product) {
   cart.push(product);
   saveCart();
-  showToastNotification(`Item successfully added to cart!`, "success");
+  showToastNotification(`${oneProduct.title} added to cart!`, "success");
 }
+const productContainer = document.getElementById("product-container");
 
 async function getOneProduct() {
   try {
@@ -34,12 +35,14 @@ async function getOneProduct() {
     oneProduct = result.data;
     displayOneProduct();
   } catch (error) {
-    console.error("Something went wrong", error);
+    const errorMsg = document.createElement("p");
+    errorMsg.setAttribute("role", "alert");
+    errorMsg.textContent = "Something went wrong, please try again later.";
+    productContainer.appendChild(errorMsg);
   }
 }
 
 function displayOneProduct() {
-  const productContainer = document.getElementById("product-container");
   productContainer.classList.add("card");
   const imageContainer = document.getElementById("product-image-container");
   const productInfo = document.getElementById("product-info-container");
@@ -52,6 +55,11 @@ function displayOneProduct() {
   productContainer.classList.add("flex-row");
   sizeAndBTNcontainer.classList.add("size-dropdown-and-button-container");
   productInfo.classList.add("margin-left");
+  const sizeLabel = document.createElement("label");
+  sizeLabel.setAttribute("for", "size-dropdown");
+  sizeLabel.textContent = "Select a size";
+  sizeLabel.classList.add("sr-only");
+  sizeDropdown.id = "size-dropdown";
 
   if (oneProduct.favorite === true) {
     const favoriteProduct = document.createElement("p");
@@ -69,6 +77,7 @@ function displayOneProduct() {
   productTags.textContent = `Tags: ${oneProduct.tags}`;
   addToCartBTN.textContent = "Add to cart";
   addToCartBTN.classList.add("btn");
+  addToCartBTN.setAttribute("aria-label", `Add ${oneProduct.title} to cart`);
   addToCartBTN.addEventListener("click", () => {
     const selectedSize = sizeDropdown.value;
     const selectedCartItem = {
@@ -94,6 +103,10 @@ function displayOneProduct() {
   productName.textContent = oneProduct.title;
   productDesc.textContent = oneProduct.description;
   productPrice.textContent = `$${oneProduct.price}`;
+  productPrice.setAttribute(
+    "aria-label",
+    `Original Price $${oneProduct.price}`,
+  );
   productGender.textContent = `Fit: ${oneProduct.gender}`;
   productColor.textContent = `Color: ${oneProduct.baseColor}`;
 
@@ -102,7 +115,6 @@ function displayOneProduct() {
   sizePlaceholder.disabled = true;
   sizePlaceholder.selected = true;
   sizeDropdown.appendChild(sizePlaceholder);
-  //add CSS to the size dropdown
 
   oneProduct.sizes.forEach((size) => {
     const option = document.createElement("option");
@@ -117,6 +129,10 @@ function displayOneProduct() {
   if (oneProduct.onSale === true) {
     productPrice.classList.add("strike");
     const salePrice = document.createElement("p");
+    salePrice.setAttribute(
+      "aria-label",
+      `Sale price $${oneProduct.discountedPrice}`,
+    );
     salePrice.classList.add("sale-price");
     salePrice.textContent = `On sale! Now ${oneProduct.discountedPrice}`;
     productInfo.appendChild(salePrice);
@@ -125,9 +141,10 @@ function displayOneProduct() {
   productInfo.appendChild(productGender);
   productInfo.appendChild(productColor);
   productInfo.appendChild(productTags);
+  productInfo.appendChild(sizeAndBTNcontainer);
+  sizeAndBTNcontainer.appendChild(sizeLabel);
   sizeAndBTNcontainer.appendChild(sizeDropdown);
   sizeAndBTNcontainer.appendChild(addToCartBTN);
-  productInfo.appendChild(sizeAndBTNcontainer);
 }
 if (id) {
   getOneProduct();
