@@ -45,7 +45,7 @@
   text-decoration: line-through;
 }
 .margin-block {
-  margin-block: 3rem;
+  margin-block: 1rem;
 }
 .flex {
   display: flex;
@@ -57,8 +57,22 @@
   padding-block: 0.5rem;
   border-radius: 0.8rem;
   font-family: 'Open sans';
-  font-weight: 500;
-  
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #0E7490;
+  border-color: #0E7490;
+  color: white;
+}
+.clearBTN {
+    padding-inline: 1rem;
+  padding-block: 0.5rem;
+  border-radius: 0.8rem;
+  font-family: 'Open sans';
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #65ac2b;
+  border-color: #65ac2b;
+  color: white;
 }
 
 #toast-container {
@@ -91,12 +105,12 @@ margin-inline: 1rem;
 margin-block: 1rem;
 margin: 0 auto;
 }
-.hidden {
+/* .hidden {
   display: none;
 }
 .visible {
   display: block;
-}
+} */
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -108,10 +122,7 @@ margin: 0 auto;
 .padding-left {
   padding-left: 2rem;
 }
-.cart-image {
-width: 100px;
-height: 100px;
-}
+
 .sr-only {
   position:absolute;
   width: 1px;
@@ -128,8 +139,9 @@ h1 {
 }
 h2 {
   font-family: "Open sans",'Helvetica';
- font-size: 1.250rem;
+ font-size: 1.4rem;
  color: var(--main-text-color);
+  margin-bottom: 1rem;
 
 }
 h3 {
@@ -174,7 +186,7 @@ input:focus {
   outline: none;
 }
 
-.definition-list {
+/* .definition-list {
   font-family: 'Open sans','Helvetica';
 
 }
@@ -201,28 +213,7 @@ input:focus {
   display:flex;
   flex-direction: column;
   text-align: center;
-}
-/* .back-button {
-  color: var(--main-text-color);
-  width:1rem;
-  height:1rem;
-}
-.breadcrumbs a{
-  font-family: 'Open sans', 'helvetica';
-  color: var(--main-text-color);
-}
-.breadcrumbs ol {
-  display:flex;
-}
-.breadcrumbs li + li::before {
-  content:"/";
-  margin: 0 0.5rem;
-  color: var(--main-text-color);
-}
-.breadcrumbs [aria-current="page"] {
-  font-weight: 600;
 } */
-
 @media (min-width: 768px) {
 h1 {
   font-size: 2.125rem;
@@ -257,6 +248,12 @@ p, a {
   color: var(--main-text-color);
   padding-inline: 1rem;
   padding-block: 0.5rem;
+}
+.margin-block {
+  margin-block: 1.5rem;
+}
+.border {
+  margin-block: 3rem;
 }
 
 

@@ -4,4 +4,11 @@ const cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
 const SummaryContainer = document.getElementById("ordersummary-section");
 
 renderOrderSummary(cart, SummaryContainer);
-console.log(cart);
+const payOrderBTN = document.createElement("button");
+payOrderBTN.classList.add("btn");
+payOrderBTN.textContent = "Pay order";
+SummaryContainer.appendChild(payOrderBTN);
+
+payOrderBTN.addEventListener("click", () => {
+  window.location.href = "confirmation.html";
+});

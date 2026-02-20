@@ -40,6 +40,7 @@ async function getOneProduct() {
 
 function displayOneProduct() {
   const productContainer = document.getElementById("product-container");
+  productContainer.classList.add("card");
   const imageContainer = document.getElementById("product-image-container");
   const productInfo = document.getElementById("product-info-container");
   const sizeAndBTNcontainer = document.getElementById(
@@ -80,9 +81,6 @@ function displayOneProduct() {
       size: selectedSize,
       quantity: 1,
     };
-    if (oneProduct.onSale) {
-      selectedCartItem.price = `$${oneProduct.discountedPrice}`;
-    }
 
     if (!selectedSize) {
       showToastNotification("Please select a size!", "error");

@@ -6,6 +6,11 @@ justify-content: center;
 margin: 0 auto;
 gap: 3rem;
  }
+ .cart-image {
+width: clamp(60px, 8vw, 120px);
+height: auto;
+object-fit: contain;
+}
 
  @media (min-width: 768px) {
  #cart-and-summary-container{

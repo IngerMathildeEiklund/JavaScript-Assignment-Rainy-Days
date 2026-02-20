@@ -7,11 +7,9 @@ loadCart();
 const cartSummaryContainer = document.getElementById(
   "cart-and-summary-container",
 );
-// cartSummaryContainer.classList.add("grid-2fr");
 
 const cartContainer = document.getElementById("cart-container");
 const summaryContainer = document.getElementById("summary-container");
-
 const cartTitle = document.createElement("h2");
 const summaryTitle = document.createElement("h2");
 cartTitle.textContent = "Your cart";
@@ -23,15 +21,22 @@ summaryContainer.append(summaryTitle);
 
 function displayCart() {
   if (cart.length === 0) {
-    cartContainer.innerHTML = `<h2> Your cart </h2> <p> Your cart is empty </p>`;
+    cartContainer.innerHTML = `<h2> Your cart </h2> <p> No items found in cart! Let's go shopping! <button class="btn" id="return-to-homepage"> Go to homepage <button> </p>`;
+    const returnToHomepageBTN = document.getElementById("return-to-homepage");
+    returnToHomepageBTN.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
     summaryContainer.innerHTML = "";
+    const bagImage = document.createElement("img");
+    bagImage.src = "svg/shopping-bag-cart-svgrepo-com.svg";
+    cartContainer.appendChild(bagImage);
   } else {
     summaryContainer.innerHTML = "<h2> Order summary </h2>";
 
     cartContainer.innerHTML = "<h2> Your cart </h2>";
     const clearCartBTN = document.createElement("button");
     clearCartBTN.textContent = `Clear cart`;
-    clearCartBTN.classList.add("clearCartBTN");
+    clearCartBTN.classList.add("clearBTN");
 
     clearCartBTN.addEventListener("click", () => {
       if (cart.length === 0) {
@@ -42,7 +47,6 @@ function displayCart() {
         displayCart();
       }
     });
-    // let total = 0;
     cart.forEach((item, index) => {
       const productContainer = document.createElement("div");
       const productImage = document.createElement("img");
@@ -59,6 +63,8 @@ function displayCart() {
 
       const deleteBTN = document.createElement("button");
       deleteBTN.textContent = "Remove item";
+      deleteBTN.classList.add("btn");
+      deleteBTN.classList.add("margin-block");
       deleteBTN.addEventListener("click", () => {
         cart.splice(index, 1);
         saveCart();
@@ -68,6 +74,7 @@ function displayCart() {
       productContainer.appendChild(productImage);
       productContainer.appendChild(productName);
       productContainer.appendChild(productSize);
+      productContainer.appendChild(productPrice);
       if (item.onSale) {
         const salePrice = document.createElement("p");
         salePrice.classList.add("sale-price");
@@ -75,7 +82,6 @@ function displayCart() {
         salePrice.textContent = `Sale! Now $${item.discountedPrice}`;
         productContainer.appendChild(salePrice);
       }
-      productContainer.appendChild(productPrice);
 
       productContainer.appendChild(productQuantity);
       productContainer.appendChild(deleteBTN);
@@ -85,6 +91,7 @@ function displayCart() {
     renderOrderSummary(cart, summaryContainer);
     const checkoutBTN = document.createElement("button");
     checkoutBTN.textContent = `Continue to checkout`;
+    checkoutBTN.classList.add("btn");
     checkoutBTN.addEventListener("click", () => {
       window.location.href = `details.html`;
     });
