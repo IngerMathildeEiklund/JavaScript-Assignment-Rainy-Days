@@ -23,58 +23,65 @@ async function getAllProducts(url, endpoint) {
 }
 
 function displayProducts(products) {
-  const loadingStatus = document.getElementById("loading-status");
-  if (loadingStatus) {
-    loadingStatus.textContent = "";
-  }
-  if (!sectionContainer) {
-    return;
-  }
-  sectionContainer.innerHTML = "";
-
-  for (const product of products) {
-    const productContainer = document.createElement("div");
-    const productImage = document.createElement("img");
-    const imageContainer = document.createElement("div");
-    const productName = document.createElement("h3");
-    const productPrice = document.createElement("p");
-    productContainer.classList.add("card");
-
-    productContainer.addEventListener("click", () => {
-      window.location.href = `productpage.html?id=${product.id}`;
-    });
-
-    productContainer.setAttribute("role", "button");
-    productContainer.setAttribute("tabindex", "0");
-    productContainer.setAttribute("aria-label", `View ${product.title}`);
-
-    productContainer.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        window.location.href = `productpage.html?id=${product.id}`;
-      }
-    });
-    productImage.src = product.image.url;
-    productImage.alt = product.title;
-    productName.textContent = product.title;
-    productPrice.textContent = `$${product.price}`;
-    productPrice.setAttribute("aria-label", `Original price $${product.price}`);
-
-    sectionContainer.append(productContainer);
-    productContainer.append(imageContainer, productName, productPrice);
-    imageContainer.append(productImage);
-    imageContainer.classList.add("card-img");
-
-    if (product.onSale) {
-      const productSalePrice = document.createElement("p");
-      productSalePrice.classList.add("sale-price");
-      productPrice.classList.add("strike");
-      productSalePrice.textContent = `On sale! Now $${product.discountedPrice}`;
-      productSalePrice.setAttribute(
-        "aria-label",
-        `Sale price $${product.discountedPrice}`,
-      );
-      productContainer.append(productSalePrice);
+  try {
+    const loadingStatus = document.getElementById("loading-status");
+    if (loadingStatus) {
+      loadingStatus.textContent = "";
     }
+    if (!sectionContainer) {
+      return;
+    }
+    sectionContainer.innerHTML = "";
+
+    for (const product of products) {
+      const productContainer = document.createElement("div");
+      const productImage = document.createElement("img");
+      const imageContainer = document.createElement("div");
+      const productName = document.createElement("h3");
+      const productPrice = document.createElement("p");
+      productContainer.classList.add("card");
+
+      productContainer.addEventListener("click", () => {
+        window.location.href = `productpage.html?id=${product.id}`;
+      });
+
+      productContainer.setAttribute("role", "button");
+      productContainer.setAttribute("tabindex", "0");
+      productContainer.setAttribute("aria-label", `View ${product.title}`);
+
+      productContainer.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          window.location.href = `productpage.html?id=${product.id}`;
+        }
+      });
+      productImage.src = product.image.url;
+      productImage.alt = product.title;
+      productName.textContent = product.title;
+      productPrice.textContent = `$${product.price}`;
+      productPrice.setAttribute(
+        "aria-label",
+        `Original price $${product.price}`,
+      );
+
+      sectionContainer.append(productContainer);
+      productContainer.append(imageContainer, productName, productPrice);
+      imageContainer.append(productImage);
+      imageContainer.classList.add("card-img");
+
+      if (product.onSale) {
+        const productSalePrice = document.createElement("p");
+        productSalePrice.classList.add("sale-price");
+        productPrice.classList.add("strike");
+        productSalePrice.textContent = `On sale! Now $${product.discountedPrice}`;
+        productSalePrice.setAttribute(
+          "aria-label",
+          `Sale price $${product.discountedPrice}`,
+        );
+        productContainer.append(productSalePrice);
+      }
+    }
+  } catch (error) {
+    sectionContainer.innerHTML = `<p> Could not load products, please try again later </p> ${error}`;
   }
 }
 
