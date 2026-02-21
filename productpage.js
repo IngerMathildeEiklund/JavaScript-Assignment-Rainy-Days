@@ -70,6 +70,7 @@ function displayOneProduct() {
   const productName = document.createElement("h3");
   const productDesc = document.createElement("p");
   const productPrice = document.createElement("h3");
+  const hr = document.createElement("hr");
   const productGender = document.createElement("p");
   const productColor = document.createElement("p");
   const productTags = document.createElement("p");
@@ -126,6 +127,7 @@ function displayOneProduct() {
   imageContainer.appendChild(productImage);
   productInfo.appendChild(productName);
   productInfo.appendChild(productDesc);
+
   if (oneProduct.onSale === true) {
     productPrice.classList.add("strike");
     const salePrice = document.createElement("p");
@@ -138,6 +140,7 @@ function displayOneProduct() {
     productInfo.appendChild(salePrice);
   }
   productInfo.appendChild(productPrice);
+  productInfo.appendChild(hr);
   productInfo.appendChild(productGender);
   productInfo.appendChild(productColor);
   productInfo.appendChild(productTags);

@@ -59,6 +59,20 @@
   margin-bottom: 0;
   color: var(--button-text-color);
 }
+ .card-cart{
+  position: relative;
+  padding-inline: 0.5rem;
+  padding-block: 0.5rem;
+  box-shadow: 2px 2px 5px 1px rgb(214, 214, 214);
+  border-color: rgb(150, 150, 150);
+  border-radius: 1rem;
+  padding: clamp(12px, 2vw, 24px);
+}
+ .cart-image {
+width: clamp(100px, 10vw, 150px);
+height: auto;
+object-fit: contain;
+}
 .flex {
   display: flex;
   justify-content: space-evenly
@@ -160,21 +174,21 @@ h2 {
 }
 h3 {
   font-family: "Open sans",'Helvetica';
- font-size: 1.125rem;
+ font-size: 1.3rem;
  color: var(--main-text-color);
  margin-bottom: 1rem;
  font-weight: 500;
 }
 h4 {
   font-family: "Open sans",'Helvetica';
- font-size: 1rem;
+ font-size: 1.2rem;
  color: var(--main-text-color);
  margin-bottom: 1rem;
 }
 
 p {
   font-family: "Open sans",'Helvetica';;
-  font-size: 1.050rem;
+  font-size: 0.9rem;
   color: var(--main-text-color);
    margin-bottom: 1rem;
 }
