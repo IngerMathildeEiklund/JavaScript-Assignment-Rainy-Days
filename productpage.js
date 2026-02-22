@@ -25,7 +25,6 @@ const productContainer = document.getElementById("product-container");
 
 async function getOneProduct() {
   if (!productContainer) {
-    console.error("Product container not found, could not get product");
     return;
   }
   try {
@@ -37,7 +36,6 @@ async function getOneProduct() {
     oneProduct = result.data;
     displayOneProduct();
   } catch (error) {
-    console.error(error);
     const errorMsg = document.createElement("p");
     errorMsg.setAttribute("role", "alert");
     errorMsg.textContent = "Something went wrong, please try again later.";
@@ -53,7 +51,6 @@ function displayOneProduct() {
     "size-dropdown-and-button-container",
   );
   if (!imageContainer || !productInfo || !sizeAndBTNcontainer) {
-    console.error("Required elements are missing to display product");
     return;
   }
   const sizeDropdown = document.createElement("select");

@@ -24,8 +24,7 @@ async function getAllProducts(url, endpoint) {
 
     displayProducts(allProducts);
   } catch (error) {
-    console.error(error);
-    sectionContainer.innerHTML = `<p> Could not load products, please try again later </p> ${error}`;
+    sectionContainer.innerHTML = `<p> Could not load products, please try again later </p>`;
   }
 }
 
@@ -101,7 +100,6 @@ function displayProducts(products) {
       }
     }
   } catch (error) {
-    console.error(error);
     sectionContainer.innerHTML =
       "<p> Could not load products, please try again later </p>";
   }

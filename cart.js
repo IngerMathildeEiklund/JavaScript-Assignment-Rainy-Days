@@ -126,6 +126,4 @@ if (cartSummaryContainer && cartContainer && summaryContainer) {
   }
 
   displayCart();
-} else {
-  console.error("Required elements missing, cannot display cart");
 }

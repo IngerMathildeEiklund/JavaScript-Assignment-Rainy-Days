@@ -4,9 +4,7 @@ import { renderOrderSummary } from "./render-order.js";
 const cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
 const summaryContainer = document.getElementById("ordersummary-section");
 
-if (!summaryContainer) {
-  console.error("Required elements missing.");
-} else {
+if (summaryContainer) {
   summaryContainer.classList.add("card-cart");
   renderOrderSummary(cart, summaryContainer);
 
